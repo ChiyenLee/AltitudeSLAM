@@ -15,6 +15,13 @@ def dms2decimal(dms, ref):
     decimals = dms[0] + dms[1]/60 + dms[2]/(60*60) * (-1 if ref in ["W", "S"] else 1)
     return decimals
 
+def getGPSFromImage(filepath):
+    im = exif.Image(filepath)
+    long = dms2decimal(im.gps_longitude, im.gps_longitude_ref)
+    lat = dms2decimal(im.gps_latitude, im.gps_latitude_ref)    
+    return lat, long
+
+
 if __name__ == "__main__":
     filename = "geotagged-images/IMG_0912.JPG"
     im = Image.open(filename)

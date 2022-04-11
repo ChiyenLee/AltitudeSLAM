@@ -9,6 +9,6 @@ pip3 install -r requirements.txt
 ```
 To run the main program, simply runs
 ```
-python3 run.py
+python3 extract_gt.py
 ```
 
